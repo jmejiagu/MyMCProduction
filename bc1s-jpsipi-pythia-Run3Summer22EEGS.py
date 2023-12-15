@@ -3,6 +3,11 @@
 #edited by: jhovanny.andres.mejia.guisao@cern.ch
 #TAKEN FROM https://github.com/alberto-sanchez/my-genproductions/blob/master/lhe-custom-hadronization/bc1s-jpsipi-pythia-had-evtgen-cp5.py
 
+import FWCore.ParameterSet.Config as cms
+from Configuration.Generator.Pythia8CommonSettings_cfi import *
+from Configuration.Generator.MCTunesRun3ECM13p6TeV.PythiaCP5Settings_cfi import *
+from GeneratorInterface.EvtGenInterface.EvtGenSetting_cff import *
+
 generator = cms.EDFilter("Pythia8HadronizerFilter",
                          maxEventsToPrint = cms.untracked.int32(1),
                          pythiaPylistVerbosity = cms.untracked.int32(0),
