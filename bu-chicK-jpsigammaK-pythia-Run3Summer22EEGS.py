@@ -8,7 +8,7 @@ from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunesRun3ECM13p6TeV.PythiaCP5Settings_cfi import *
 from GeneratorInterface.EvtGenInterface.EvtGenSetting_cff import *
 
-generator = cms.EDFilter("Pythia8HadronizerFilter",
+_generator = cms.EDFilter("Pythia8GeneratorFilter",
                          maxEventsToPrint = cms.untracked.int32(1),
                          pythiaPylistVerbosity = cms.untracked.int32(0),
                          filterEfficiency = cms.untracked.double(1.0),
@@ -20,8 +20,8 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
                              particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
                              #user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/Bu_chic1K_jpsigammaK.dec'),
                              user_decay_file = cms.vstring('BplusSignal.dec'),  
-            list_forced_decays = cms.vstring('MyB+','MyB-'),
-            operates_on_particles = cms.vint32()
+                            list_forced_decays = cms.vstring('MyB+','MyB-'),
+                            operates_on_particles = cms.vint32()
         ),
         parameterSets = cms.vstring('EvtGen130')
     ),
