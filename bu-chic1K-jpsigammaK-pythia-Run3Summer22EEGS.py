@@ -45,7 +45,9 @@ Decay Mychi_c1
 Enddecay
 
 Decay MyB+
- 0.0168  Mychi_c1   K+                   SVS ;
+# 0.0168  Mychi_c1   K+                   SVS ;
+ 1.0000  Mychi_c1   K+                   SVS ;
+
 Enddecay
 CDecay MyB-
 
