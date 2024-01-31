@@ -8,6 +8,7 @@ from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunesRun3ECM13p6TeV.PythiaCP5Settings_cfi import *
 from GeneratorInterface.EvtGenInterface.EvtGenSetting_cff import *
 
+
 _generator = cms.EDFilter("Pythia8GeneratorFilter",
     pythiaPylistVerbosity = cms.untracked.int32(0),
     pythiaHepMCVerbosity = cms.untracked.bool(False),
@@ -17,18 +18,48 @@ _generator = cms.EDFilter("Pythia8GeneratorFilter",
         EvtGen130 = cms.untracked.PSet(
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
-            user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/Bu_chic1K_jpsigammaK.dec'),
             list_forced_decays = cms.vstring('MyB+','MyB-'),
-            operates_on_particles = cms.vint32()
+            operates_on_particles = cms.vint32(521,-521),    # we care just about our signal particles
+            convertPythiaCodes = cms.untracked.bool(False),
+            user_decay_embedded= cms.vstring(
+"""
+#
+# This is the decay file for B -> Chi_c1(Jpsi ( -> mu mu ) gamma) K+
+#
+Alias      MyB+   B+
+Alias      MyB-   B-
+ChargeConj MyB-   MyB+
+
+Alias MyJ/psi J/psi
+ChargeConj MyJ/psi MyJ/psi
+
+Alias Mychi_c1 chi_c1
+ChargeConj Mychi_c1 Mychi_c1
+
+Decay MyJ/psi
+ 1.0000  mu+        mu-                    PHOTOS VLL ;
+Enddecay
+
+Decay Mychi_c1
+ 1.0000  MyJ/psi    gamma                  VVP 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 ;
+Enddecay
+
+Decay MyB+
+ 0.0168  Mychi_c1   K+                   SVS ;
+Enddecay
+CDecay MyB-
+
+End
+"""
+            ),
         ),
         parameterSets = cms.vstring('EvtGen130')
     ),
     PythiaParameters = cms.PSet(
         pythia8CommonSettingsBlock,
         pythia8CP5SettingsBlock,
-        processParameters = cms.vstring(
-            'HardQCD:all = on',
-            'PhaseSpace:pTHatMin = 8.',   
+        processParameters = cms.vstring('HardQCD:all = on',
+                                        'PhaseSpace:pTHatMin = 8.',
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
