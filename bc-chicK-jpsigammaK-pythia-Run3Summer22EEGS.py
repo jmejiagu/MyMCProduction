@@ -8,7 +8,7 @@ from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunesRun3ECM13p6TeV.PythiaCP5Settings_cfi import *
 from GeneratorInterface.EvtGenInterface.EvtGenSetting_cff import *
 
-_generator = cms.EDFilter("Pythia8HadronizerFilter",
+generator = cms.EDFilter("Pythia8HadronizerFilter",
     pythiaPylistVerbosity = cms.untracked.int32(0),
     pythiaHepMCVerbosity = cms.untracked.bool(False),
     maxEventsToPrint = cms.untracked.int32(0),
@@ -85,8 +85,8 @@ End
                         )
 )
 
-from GeneratorInterface.Core.ExternalGeneratorFilter import ExternalGeneratorFilter
-generator = ExternalGeneratorFilter(_generator)
+#from GeneratorInterface.Core.ExternalGeneratorFilter import ExternalGeneratorFilter
+#generator = ExternalGeneratorFilter(_generator)
 
 generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 
