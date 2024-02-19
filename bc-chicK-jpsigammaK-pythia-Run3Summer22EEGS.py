@@ -60,7 +60,7 @@ CDecay B_c-_SIGNAL
 End
 """
             ),
-            operates_on_particles = cms.vint32(541), 
+            operates_on_particles = cms.vint32(541,-541), 
             list_forced_decays = cms.vstring('B_c+_SIGNAL','B_c-_SIGNAL'),  
         ),
         parameterSets = cms.vstring('EvtGen130')
