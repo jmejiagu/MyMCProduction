@@ -18,8 +18,15 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
         pythia8CommonSettingsBlock,
         pythia8CP5SettingsBlock,
         processParameters = cms.vstring( # put below any needed pythia parameter
+             #'SoftQCD:nonDiffractive = on', # not needed for Bc (LHE origin)
+             #'PTFilter:filter = on', #not needed for Bc (LHE origin)
+             #'PTFilter:quarkToFilter = 5', # not needed for Bc (LHE origin)
+             #'PTFilter:scaleToFilter = 1.0', #not needed for Bc (LHE origin)
             '541:m0 = 6.27447',
-            '541:tau0 = 0.153'
+            '541:tau0 = 0.153',
+            '541:mayDecay = off', ## Pythia would attempt to perform automatic decay for the Bc​ meson according to its internal rules. but, EvtGen already defined the specific decay for.
+            'ProcessLevel:all = off', ## if on Pythia would activate all high-level physics processes by default (that have already been considered by bcvegpy?)
+            'ProcessLevel:resonanceDecays = on' ## if "0ff",  will Pythia still take into account information from LHE files?
         ),
         parameterSets = cms.vstring(
             'pythia8CommonSettings',
