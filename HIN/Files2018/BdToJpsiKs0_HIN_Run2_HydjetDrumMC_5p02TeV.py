@@ -2,6 +2,7 @@
 #author: jhovanny.andres.mejia.guisao@cern.ch
 #EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/HIN-HINPbPbAutumn18GSHIMix-00005
 #EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/HIN-HiFall15-00043
+#EXAMPLE TAKEN FROM https:https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/BPH-RunIISummer19UL18GEN-00013  (pp 2018 BPH file)
 #ONLY CHANGE IS .... 
 
 import FWCore.ParameterSet.Config as cms
@@ -35,7 +36,7 @@ Alias      MyK_S0      K_S0
 ChargeConj MyK_S0      MyK_S0
 #
 Decay MyB0
-1.000    MyJpsi      MyK_S0             PHSP;
+1.000    MyJpsi      MyK_S0             SVS;
 Enddecay
 CDecay Myanti-B0
 #
