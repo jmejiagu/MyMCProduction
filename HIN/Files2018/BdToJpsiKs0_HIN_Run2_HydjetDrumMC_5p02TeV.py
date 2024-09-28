@@ -35,7 +35,7 @@ Alias      MyK_S0      K_S0
 ChargeConj MyK_S0      MyK_S0
 #
 Decay MyB0
-1.000    MyJpsi      MyK_S0             PHSP;
+1.000    MyJpsi      MyK_S0             SVS;
 Enddecay
 CDecay Myanti-B0
 #
