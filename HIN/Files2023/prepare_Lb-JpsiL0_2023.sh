@@ -15,13 +15,13 @@ cd CMSSW_13_0_20_HeavyIon/src
 eval `scram runtime -sh`
 
 # Configuration parameters
-CHANNEL_DECAY="1-BdtoJpsiKs0"
-step0_fragmentfile="BdToJpsiKs0_HIN_Run3-2023_HydjetDrumMC_5p36TeV.py"
+CHANNEL_DECAY="1-LbtoJpsiL0"
+step0_fragmentfile="LbToJpsiL0_HIN_Run3-2023_HydjetDrumMC_5p36TeV.py"
 step0_configfile="step0-RAWSIM-${CHANNEL_DECAY}-run_cfg.py"
 step0_resultfile="step0-RAWSIM-${CHANNEL_DECAY}-result.root"
 
 ## Download fragment from myGitHub
-curl -s -k https://raw.githubusercontent.com/jmejiagu/MyMCProduction/refs/heads/main/HIN/Files2023/$step0_fragmentfile --retry 3 --create-dirs -o Configuration/GenProduction/python/$step0_fragmentfile
+curl -s -k https://raw.githubusercontent.com/jmejiagu/MyMCProduction/refs/heads/main/HIN/Files2023/LbToJpsiL0_HIN_Run3-2023_HydjetDrumMC_5p36TeV.py/$step0_fragmentfile --retry 3 --create-dirs -o Configuration/GenProduction/python/$step0_fragmentfile
 [ -s Configuration/GenProduction/python/$step0_fragmentfile ] || exit $?;
 
 scram b
