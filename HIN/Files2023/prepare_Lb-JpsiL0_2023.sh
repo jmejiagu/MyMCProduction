@@ -21,7 +21,7 @@ step0_configfile="step0-RAWSIM-${CHANNEL_DECAY}-run_cfg.py"
 step0_resultfile="step0-RAWSIM-${CHANNEL_DECAY}-result.root"
 
 ## Download fragment from myGitHub
-curl -s -k https://raw.githubusercontent.com/jmejiagu/MyMCProduction/refs/heads/main/HIN/Files2023/LbToJpsiL0_HIN_Run3-2023_HydjetDrumMC_5p36TeV.py/$step0_fragmentfile --retry 3 --create-dirs -o Configuration/GenProduction/python/$step0_fragmentfile
+curl -s -k https://raw.githubusercontent.com/jmejiagu/MyMCProduction/refs/heads/main/HIN/Files2023/$step0_fragmentfile --retry 3 --create-dirs -o Configuration/GenProduction/python/$step0_fragmentfile
 [ -s Configuration/GenProduction/python/$step0_fragmentfile ] || exit $?;
 
 scram b
