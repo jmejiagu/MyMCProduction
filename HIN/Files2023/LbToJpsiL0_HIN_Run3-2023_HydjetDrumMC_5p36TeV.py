@@ -1,5 +1,6 @@
-#Pythia fragment for filtered B0 -> J/psi(mu+mu-)Kshort(pi+pi-) at 5.02TeV
+#Pythia fragment for filtered B0 -> J/psi(mu+mu-)Kshort(pi+pi-) at 5.36TeV
 #author: jhovanny.andres.mejia.guisao@cern.ch
+#For 2018
 #EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/HIN-HINPbPbAutumn18GSHIMix-00005
 #EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/HIN-HiFall15-00043
 #EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/BPH-Run3Summer22EEGS-00107
@@ -10,7 +11,7 @@
 
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
-#from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import * ## This was in 2018 silmulation, for 13.0 TeV
+#from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import * ## This was in 2018 silmulation
 from Configuration.Generator.MCTunesRun3ECM13p6TeV.PythiaCP5Settings_cfi import *
 from GeneratorInterface.EvtGenInterface.EvtGenSetting_cff import *
 
