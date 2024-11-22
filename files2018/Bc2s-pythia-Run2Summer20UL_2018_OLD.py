@@ -25,7 +25,7 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
 """
 Particle B_c*+     6.34000 0.00000
 Particle B_c+      6.27490 0.00000
-Particle B_c(2S)+  6.87120 0.00000
+Particle B_c(2S)+  6.86300 0.00000
 Particle B_c*(2S)+ 6.90300 0.00000
 
 Alias B_c+_SIGNAL B_c+
@@ -71,7 +71,7 @@ End
                            pythia8CP5SettingsBlock,
                            processParameters = cms.vstring( # put below any needed pythia parameter
 #
-            '100541:new = B_c(2S)+ B_c(2S)- 1 3 0 6.8712000e+00 0.0000000e+00 6.863 6.863 0.0000000e+00',
+            '100541:new = B_c(2S)+ B_c(2S)- 1 3 0 6.8630000e+00 0.0000000e+00 6.863 6.863 0.0000000e+00',
             '100541:isResonance = false',
             '100541:addChannel = 1 1.0 0 541 211 -211',
             '100541:mayDecay = off',
