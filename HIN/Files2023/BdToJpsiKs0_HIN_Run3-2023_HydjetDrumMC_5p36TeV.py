@@ -62,11 +62,11 @@ End
         pythia8CommonSettingsBlock,
         pythia8CP5SettingsBlock,
         processParameters = cms.vstring(
-            #'HardQCD:all = on',
-            'HardQCD:gg2bbbar    = on ',
-            'HardQCD:qqbar2bbbar = on ',
-            'HardQCD:hardbbbar   = on',
-            'PhaseSpace:pTHatMin = 2.',
+            'HardQCD:all = on',
+            #'HardQCD:gg2bbbar    = on ',
+            #'HardQCD:qqbar2bbbar = on ',
+            #'HardQCD:hardbbbar   = on',
+            'PhaseSpace:pTHatMin = 0.', #min pthat
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',

@@ -42,19 +42,19 @@ Alias      MyJpsi           J/psi
 ChargeConj MyJpsi           MyJpsi
 #
 Decay MyLambdab0
-1.000  MyLambda  MyJpsi  PHSP;
+1.000  MyLambda  MyJpsi  HELAMP 1 0 0.129 -2.523 1.021 1.122 0.145 1.788;
 Enddecay
 Decay MyantiLambdab0
-1.000  MyLambdabar  MyJpsi  PHSP;
+1.000  MyLambdabar  MyJpsi  HELAMP 1 0 0.129 -2.523 1.021 1.122 0.145 1.788;
 Enddecay
 #
 #
 Decay MyLambda
-1.000   p+  pi-  PHSP; 
+1.000   p+  pi-  LAMBDA2PPIFORLAMBDAB2LAMBDAV 0 1; 
 Enddecay
 #
 Decay MyLambdabar
-1.000   anti-p-  pi+  PHSP;
+1.000   anti-p-  pi+  LAMBDA2PPIFORLAMBDAB2LAMBDAV 0 1;
 Enddecay
 #
 Decay MyJpsi
@@ -71,11 +71,19 @@ End
         pythia8CommonSettingsBlock,
         pythia8CP5SettingsBlock,
         processParameters = cms.vstring(
-            'HardQCD:all = on',
-            #'HardQCD:gg2bbbar    = on ',
-            #'HardQCD:qqbar2bbbar = on ',
-            #'HardQCD:hardbbbar   = on',
-            'PhaseSpace:pTHatMin = 0.', #min pthat
+            #'HardQCD:all = on',
+            'HardQCD:gg2bbbar    = on ',
+            'HardQCD:qqbar2bbbar = on ',
+            'HardQCD:hardbbbar   = on',
+            'PhaseSpace:pTHatMin = 2.',
+            ## to improve the statistics of generated events in regions where the number of events would normally be low (example, events with high pT values).
+            #'PhaseSpace:bias2Selection = on',
+            ## This parameter controls the strength of the applied bias. The bias generally takes the form of a weight proportional to a power of pT. The higher the value of bias2SelectionPow,
+            ## the more aggressive the bias in favor of events with high pT. When the value is 2.2, the weight applied to the events will be proportional to pT^{2.2}.
+            #'PhaseSpace:bias2SelectionPow = 2.2',
+            ## Reference point for the bias. which means that events will be biased from a reference pT equal to 1 GeV.
+            ## Events with pT lower than this value will not be as affected by the bias, while those with higher pT values will be more favored.
+            #'PhaseSpace:bias2SelectionRef = 1'
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
