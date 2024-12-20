@@ -1,13 +1,5 @@
 #Pythia fragment for filtered Lambdab -> J/psi(->mumu) Lambda(->Ppi) at 5.36TeV
-#author: jhovanny.andres.mejia.guisao@cern.ch
-#For 2018
-#EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/HIN-HINPbPbAutumn18GSHIMix-00005
-#EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/HIN-HiFall15-00043
-#EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/BPH-Run3Summer22EEGS-00107
-#EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/BPH-RunIISummer15GS-00163
-#For 2023
-#EXAMPLE TAKEN FROM https://gitlab.cern.ch/cms-hin-pag/ping-forward-upc/mcrequest/-/tree/master/PYTHIA8_Fragments
-#EXAMPLE TAKEN FROM https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/BPH-Run3Summer23GS-00122 
+#author: jhovanny.andres.mejia.guisao@cern.ch 
 
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
@@ -84,7 +76,7 @@ decayfilter = cms.EDFilter(
     NumberDaughters = cms.untracked.int32(2),
     ParticleID      = cms.untracked.int32(5122),
     DaughterIDs     = cms.untracked.vint32(443, 3122),
-    MinPt           = cms.untracked.vdouble(-1., -1),
+    MinPt           = cms.untracked.vdouble(0.5, 0.1),
     MinEta          = cms.untracked.vdouble(-9999., -9999.),
     MaxEta          = cms.untracked.vdouble( 9999., 9999.)
     )
