@@ -42,19 +42,19 @@ Alias      MyJpsi           J/psi
 ChargeConj MyJpsi           MyJpsi
 #
 Decay MyLambdab0
-1.000  MyLambda  MyJpsi  HELAMP 1 0 0.129 -2.523 1.021 1.122 0.145 1.788;
+1.000  MyLambda  MyJpsi  PHSP;
 Enddecay
 Decay MyantiLambdab0
-1.000  MyLambdabar  MyJpsi  HELAMP 1 0 0.129 -2.523 1.021 1.122 0.145 1.788;
+1.000  MyLambdabar  MyJpsi  PHSP;
 Enddecay
 #
 #
 Decay MyLambda
-1.000   p+  pi-  LAMBDA2PPIFORLAMBDAB2LAMBDAV 0 1; 
+1.000   p+  pi-  PHSP; 
 Enddecay
 #
 Decay MyLambdabar
-1.000   anti-p-  pi+  LAMBDA2PPIFORLAMBDAB2LAMBDAV 0 1;
+1.000   anti-p-  pi+  PHSP;
 Enddecay
 #
 Decay MyJpsi
