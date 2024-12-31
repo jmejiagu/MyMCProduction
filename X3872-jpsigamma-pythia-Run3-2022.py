@@ -48,7 +48,7 @@ Decay MyJ/psi
 Enddecay
 
 Decay MyX(3872)
-1.000   Mypsi  gamma             PHSP;
+1.000   MyJ/psi  gamma             PHSP;
 Enddecay
 
 End
