@@ -35,8 +35,8 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 # Particles updated from PDG2024 https://pdglive.lbl.gov/Viewer.action
 # This is the decay file for X(3872)->Jpsi(mu+mu-)gamma
 #
-Particle   J/psi       3.0969000e+00   9.2600000e-05', ## 443
-Particle   chi_c1      3.8716400e+00   0.00119', ## 20443 with X mass 
+Particle   J/psi       3.0969000e+00   9.2600000e-05 ## 443
+Particle   chi_c1      3.8716400e+00   0.00119 ## 20443 with X mass 
 
 Alias      MyX(3872)   chi_c1
 ChargeConj MyX(3872)   MyX(3872)
@@ -118,7 +118,6 @@ generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 xxfilter = cms.EDFilter("PythiaDauVFilter",
         verbose         = cms.untracked.int32(0), 
         NumberDaughters = cms.untracked.int32(2),
-#        MotherID = cms.untracked.int32(0),                
         ParticleID      = cms.untracked.int32(20443),  
         DaughterIDs     = cms.untracked.vint32(443, 22),
         MinPt           = cms.untracked.vdouble(6.0, 0.2), 
