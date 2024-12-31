@@ -116,7 +116,6 @@ generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 ###### Filters ##########
 
 xxfilter = cms.EDFilter("PythiaDauVFilter",
-        verbose         = cms.untracked.int32(0), 
         NumberDaughters = cms.untracked.int32(2),
         ParticleID      = cms.untracked.int32(20443),  
         DaughterIDs     = cms.untracked.vint32(443, 22),
@@ -126,7 +125,6 @@ xxfilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 jmmfilter = cms.EDFilter("PythiaDauVFilter",
-            verbose         = cms.untracked.int32(0),
             NumberDaughters = cms.untracked.int32(2),
             MotherID        = cms.untracked.int32(20443),
             ParticleID      = cms.untracked.int32(443),
