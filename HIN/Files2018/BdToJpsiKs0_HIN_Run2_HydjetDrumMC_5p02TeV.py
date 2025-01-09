@@ -42,10 +42,6 @@ CDecay Myanti-B0
 Decay MyJpsi
   1.000         mu+       mu-            PHOTOS VLL;
 Enddecay
-#
-Decay MyK_S0
-  1.000        pi+        pi-  PHSP;
-Enddecay
 End
 """
             ),
@@ -60,7 +56,7 @@ End
             #'HardQCD:gg2bbbar    = on ',
             #'HardQCD:qqbar2bbbar = on ',
             #'HardQCD:hardbbbar   = on',
-            'PhaseSpace:pTHatMin = 2.',
+            'PhaseSpace:pTHatMin = 0.',
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
@@ -79,7 +75,7 @@ decayfilter = cms.EDFilter(
     NumberDaughters = cms.untracked.int32(2),
     ParticleID      = cms.untracked.int32(511),
     DaughterIDs     = cms.untracked.vint32(443, 310),
-    MinPt           = cms.untracked.vdouble(-1., -1),
+    MinPt           = cms.untracked.vdouble(0.5, 0.1),
     MinEta          = cms.untracked.vdouble(-9999., -9999.),
     MaxEta          = cms.untracked.vdouble( 9999., 9999.)
     )
@@ -96,18 +92,8 @@ jpsifilter = cms.EDFilter(
     MaxEta          = cms.untracked.vdouble( 2.7, 2.7)
     )
 
-kshortfilter = cms.EDFilter(
-    "PythiaDauVFilter",
-    verbose         = cms.untracked.int32(1),
-    NumberDaughters = cms.untracked.int32(2),
-    MotherID        = cms.untracked.int32(511),
-    ParticleID      = cms.untracked.int32(310),
-    DaughterIDs     = cms.untracked.vint32(211, -211),
-    MinPt           = cms.untracked.vdouble(0.25, 0.25),
-    MinEta          = cms.untracked.vdouble(-3.0, -3.0),
-    MaxEta          = cms.untracked.vdouble( 3.0, 3.0)
-    )
+ProductionFilterSequence = cms.Sequence(generator*decayfilter*jpsifilter)
 
 
 
-ProductionFilterSequence = cms.Sequence(generator*decayfilter*jpsifilter*kshortfilter)
+
