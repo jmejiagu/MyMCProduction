@@ -47,7 +47,7 @@ End
 """
             ),
             operates_on_particles = cms.vint32(10020443,-10020443), 
-            list_forced_decays = cms.vstring('X_1(3872)+','X_1(3872)-'),  
+            #list_forced_decays = cms.vstring('X_1(3872)+','X_1(3872)-'),  
         ),
         parameterSets = cms.vstring('EvtGen130')
     ),
