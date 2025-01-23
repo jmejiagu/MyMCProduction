@@ -71,7 +71,7 @@ End
                            pythia8CP5SettingsBlock,
                            processParameters = cms.vstring( # put below any needed pythia parameter
 #
-            '100541:new = B_c(2S)+ B_c(2S)- 1 3 0 6.8712000e+00 0.0000000e+00 6.863 6.863 0.0000000e+00',
+            '100541:new = B_c(2S)+ B_c(2S)- 1 3 0 6.8712000e+00 0.0000000e+00 6.8712 6.8712 0.0000000e+00',
             '100541:isResonance = false',
             '100541:addChannel = 1 1.0 0 541 211 -211',
             '100541:mayDecay = off',
