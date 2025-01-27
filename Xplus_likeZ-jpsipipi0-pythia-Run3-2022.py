@@ -60,7 +60,7 @@ End
         pythia8CP5SettingsBlock,
         processParameters = cms.vstring( # put below any needed pythia parameter
 
-            '9042413:m0=3.87164 ',       ## changing also Z(4430)+ mass in pythia
+            '9042413:m0=3.87164',       ## changing also Z(4430)+ mass in pythia
 
             '541:m0 = 6.27447', ## Bc mass
             '541:tau0 = 0.151995', ## Bc lifetime in c*tau/mm 
