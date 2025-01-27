@@ -26,7 +26,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             user_decay_embedded= cms.vstring(
 """
 #
-# This is the decay file for the decay B0 -> J/psi(->mumu) Kshort(->pipi)
+# This is the decay file for the decay Lambdab -> J/psi(->mumu) Lambda(->Ppi)
 #
 Alias      MyLambdab0       Lambda_b0
 Alias      MyantiLambdab0   anti-Lambda_b0
@@ -38,25 +38,15 @@ Alias      MyJpsi           J/psi
 ChargeConj MyJpsi           MyJpsi
 #
 Decay MyLambdab0
-1.000  MyLambda  MyJpsi  HELAMP 1 0 0.129 -2.523 1.021 1.122 0.145 1.788;
+1.000  MyLambda  MyJpsi  PHSP;
 Enddecay
 Decay MyantiLambdab0
-1.000  MyLambdabar  MyJpsi  HELAMP 1 0 0.129 -2.523 1.021 1.122 0.145 1.788;
-Enddecay
-#
-#
-Decay MyLambda
-1.000   p+  pi-  LAMBDA2PPIFORLAMBDAB2LAMBDAV 0 1; 
-Enddecay
-#
-Decay MyLambdabar
-1.000   anti-p-  pi+  LAMBDA2PPIFORLAMBDAB2LAMBDAV 0 1;
+1.000  MyLambdabar  MyJpsi  PHSP;
 Enddecay
 #
 Decay MyJpsi
   1.000         mu+       mu-         PHOTOS VLL;
 Enddecay
-#
 End
 """
             ),
@@ -71,7 +61,7 @@ End
             'HardQCD:gg2bbbar    = on ',
             'HardQCD:qqbar2bbbar = on ',
             'HardQCD:hardbbbar   = on',
-            'PhaseSpace:pTHatMin = 2.',
+            'PhaseSpace:pTHatMin = 0.0',
             ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
@@ -90,7 +80,7 @@ decayfilter = cms.EDFilter(
     NumberDaughters = cms.untracked.int32(2),
     ParticleID      = cms.untracked.int32(5122),
     DaughterIDs     = cms.untracked.vint32(443, 3122),
-    MinPt           = cms.untracked.vdouble(-1., -1),
+    MinPt           = cms.untracked.vdouble(2.0, 0.5),
     MinEta          = cms.untracked.vdouble(-9999., -9999.),
     MaxEta          = cms.untracked.vdouble( 9999., 9999.)
     )
@@ -107,17 +97,4 @@ jpsifilter = cms.EDFilter(
     MaxEta          = cms.untracked.vdouble( 2.7, 2.7)
     )
 
-lambdafilter = cms.EDFilter(
-    "PythiaDauVFilter",
-    verbose         = cms.untracked.int32(1),
-    NumberDaughters = cms.untracked.int32(2),
-    MotherID        = cms.untracked.int32(5122),
-    ParticleID      = cms.untracked.int32(3122),
-    DaughterIDs     = cms.untracked.vint32(2212, -211),
-    MinPt           = cms.untracked.vdouble(0.25, 0.25),
-    MinEta          = cms.untracked.vdouble(-3.0, -3.0),
-    MaxEta          = cms.untracked.vdouble( 3.0, 3.0)
-    )
-
-
-ProductionFilterSequence = cms.Sequence(generator*decayfilter*jpsifilter*lambdafilter)
+ProductionFilterSequence = cms.Sequence(generator*decayfilter*jpsifilter)
