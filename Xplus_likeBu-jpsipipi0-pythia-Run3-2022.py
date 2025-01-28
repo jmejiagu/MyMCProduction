@@ -67,11 +67,11 @@ End
             ### https://www.pythia.org/latest-manual/Welcome.html
             ### https://pythia.org/latest-manual/ParticleDataScheme.html
 
-            #'521:m0 = 3.87164',
+            '521:m0 = 3.87164',
             #'521:tau0 = 0.0',
-            #'521:mWidth = 0.0',
+            '521:mWidth = 0.0',
             #'521:spinType = 3.0',
-            #'521:mayDecay = off',
+            '521:mayDecay = off',
 
             '541:m0 = 6.27447', ## Bc mass
             '541:tau0 = 0.151995', ## Bc lifetime in c*tau/mm 
