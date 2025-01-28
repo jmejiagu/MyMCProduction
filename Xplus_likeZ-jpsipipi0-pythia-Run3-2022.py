@@ -50,8 +50,8 @@ Enddecay
 End
 """
             ),
-            operates_on_particles = cms.vint32(9042413,-9042413), 
-            list_forced_decays = cms.vstring('MyX(3872)+','MyAntiX(3872)-'),  
+            #operates_on_particles = cms.vint32(-9042413,9042413), 
+            list_forced_decays = cms.vstring('MyX(3872)-','MyAntiX(3872)+'),  
         ),
         parameterSets = cms.vstring('EvtGen130')
     ),
