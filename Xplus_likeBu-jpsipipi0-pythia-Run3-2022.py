@@ -25,8 +25,8 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 # This is the decay file for X(3872)+->Jpsi(mu+mu-)pi+pi0(gammagamma)
 #
 Particle   J/psi       3.0969000e+00   9.2600000e-05 ## 443
-Particle   B+          3.8716400e+00   0.0000  0.0000    3   2  0.0000000e-00
-Particle   B-          3.8716400e+00   0.0000  0.0000    -3  2  0.0000000e-00   ## 521 with X mass width=0.00119?? and spin=1 and lifetime=0.0
+#Particle   B+          3.8716400e+00   0.0000  0.0000    3   2  0.0000000e-00
+#Particle   B-          3.8716400e+00   0.0000  0.0000    -3  2  0.0000000e-00   ## 521 with X mass width=0.00119?? and spin=1 and lifetime=0.0
 
 Alias      MyX(3872)+       B+
 Alias      MyAntiX(3872)-   B-
@@ -64,11 +64,11 @@ End
             ### https://www.pythia.org/latest-manual/Welcome.html
             ### https://pythia.org/latest-manual/ParticleDataScheme.html
 
-            '521:m0 = 3.87164',
-            '521:tau0 = 0.0',
-            '521:mWidth = 0.0',
-            '521:spinType = 3.0',
-            '521:mayDecay = off',
+            #'521:m0 = 3.87164',
+            #'521:tau0 = 0.0',
+            #'521:mWidth = 0.0',
+            #'521:spinType = 3.0',
+            #'521:mayDecay = off',
 
             '541:m0 = 6.27447', ## Bc mass
             '541:tau0 = 0.151995', ## Bc lifetime in c*tau/mm 
