@@ -60,6 +60,13 @@ End
         pythia8CP5SettingsBlock,
         processParameters = cms.vstring( # put below any needed pythia parameter
 
+            ### https://www.pythia.org/latest-manual/Welcome.html
+            ### https://pythia.org/latest-manual/ParticleDataScheme.html
+
+#            '9042413:new = Z(4430)+ Z(4430)- 3 3 0 3 3 0 3.8716400e+00 0.0000000e+00 3.87164 3.87164 0.0000000e+00', # ADD Z(4430) like X(3872)+?
+            '9042413:new = Z(4430)+ Z(4430)- 3 3 0 4.4330000e+00 3.1700598e-04 4.4330000e+00 4.4330000e+00 0.0000000e+00', # ADD  Z(4430)
+            '9042413:isResonance = false',
+            '9042413:addChannel = 1 1.0 0 443 211 111',
             '9042413:m0 = 3.87164',       ## changing also Z(4430)+ mass in pythia
             '9042413:tau = 0.0',
             '9042413:mWidth = 0.0',
@@ -103,7 +110,7 @@ End
             'HardQCD:gg2ccbar = on',
             'HardQCD:qqbar2ccbar = on',
             'HardQCD:hardccbar = on',
-            #"SoftQCD:nonDiffractive = on",
+            "SoftQCD:nonDiffractive = on",
             #'HardQCD:all = on',
 #
                            ),
