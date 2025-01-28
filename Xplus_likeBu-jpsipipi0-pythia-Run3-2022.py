@@ -27,6 +27,9 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 Particle   J/psi       3.0969000e+00   9.2600000e-05 ## 443
 #Particle   B+          3.8716400e+00   0.0000  0.0000    3   2  0.0000000e-00
 #Particle   B-          3.8716400e+00   0.0000  0.0000    -3  2  0.0000000e-00   ## 521 with X mass width=0.00119?? and spin=1 and lifetime=0.0
+Particle   B+          3.8716400e+00   0.0000  
+Particle   B-          3.8716400e+00   0.0000
+
 
 Alias      MyX(3872)+       B+
 Alias      MyAntiX(3872)-   B-
