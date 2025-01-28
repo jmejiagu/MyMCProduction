@@ -61,6 +61,10 @@ End
         processParameters = cms.vstring( # put below any needed pythia parameter
 
             '9042413:m0 = 3.87164',       ## changing also Z(4430)+ mass in pythia
+            '9042413:tau = 0.0',
+            '9042413:mWidth = 0.0',
+            '9042413:mayDecay = off',
+
             '541:m0 = 6.27447', ## Bc mass
             '541:tau0 = 0.151995', ## Bc lifetime in c*tau/mm 
             '5122:m0 = 5.61960', ## Lb mass 
@@ -85,6 +89,7 @@ End
 #            'Charmonium:gg2ccbar(3PJ)[3S1(8)]g = on,on',
 #            'Charmonium:qg2ccbar(3PJ)[3S1(8)]q = on,on',
 #            'Charmonium:qqbar2ccbar(3PJ)[3S1(8)]g = on,on',
+#            'Charmonium:states(3P1) = 20443',
             
             'PhaseSpace:pTHatMin = 5.', 
             'PTFilter:filter = on', # this turn on the filter
@@ -92,7 +97,6 @@ End
             'PTFilter:scaleToFilter = 1.0',
 #           'PTFilter:quarkPtMin = 1.0',  # Mínimo pT en GeV
 #           'PTFilter:quarkPtMax = 20.0', # Máximo pT en GeV (opcional)
-#           'Charmonium:states(3P1) = 20443',
 #
             #'ProcessLevel:all = off',
             #'ProcessLevel:resonanceDecays = on'
