@@ -24,20 +24,20 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 # This is the decay file for X(3872)+->Jpsi(mu+mu-)pi+pi0(gammagamma)
 #
 Particle   J/psi       3.0969000e+00   9.2600000e-05 ## 443
-Particle   Z(4430)+    3.8716400e+00   0.0000 ## 9042413 with X mass width=0.00119??
 Particle   Z(4430)-    3.8716400e+00   0.0000
+Particle   Z(4430)+    3.8716400e+00   0.0000 ## 9042413 with X mass width=0.00119??
 
-Alias      MyX(3872)+       Z(4430)+
-Alias      MyAntiX(3872)-   Z(4430)-
-ChargeConj MyAntiX(3872)-   MyX(3872)+
+Alias      MyX(3872)-       Z(4430)-
+Alias      MyAntiX(3872)+   Z(4430)+
+ChargeConj MyAntiX(3872)+   MyX(3872)-
 
 Alias      MyJ/psi     J/psi
 ChargeConj MyJ/psi     MyJ/psi
 
-Decay MyX(3872)+
-1.000   MyJ/psi  pi+  pi0     PHSP;
+Decay MyX(3872)-
+1.000   MyJ/psi  pi-  pi0     PHSP;
 Enddecay
-CDecay MyAntiX(3872)-
+CDecay MyAntiX(3872)+
 
 Decay pi0
  1.000   gamma   gamma       PHSP;  ## VSP_PWAVE??
@@ -61,7 +61,6 @@ End
         processParameters = cms.vstring( # put below any needed pythia parameter
 
             '9042413:m0 = 3.87164',       ## changing also Z(4430)+ mass in pythia
-
             '541:m0 = 6.27447', ## Bc mass
             '541:tau0 = 0.151995', ## Bc lifetime in c*tau/mm 
             '5122:m0 = 5.61960', ## Lb mass 
