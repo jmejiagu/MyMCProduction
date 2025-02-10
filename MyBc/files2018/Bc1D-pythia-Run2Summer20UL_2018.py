@@ -49,7 +49,7 @@ CDecay B_c*(2S)-
 
 Decay B_c*+
   1.0 B_c+_SIGNAL  gamma   VSP_PWAVE;
-.Enddecay
+Enddecay
 CDecay B_c*-
 
 Decay B_c+_SIGNAL
