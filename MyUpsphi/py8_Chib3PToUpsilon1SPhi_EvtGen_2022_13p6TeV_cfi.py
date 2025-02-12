@@ -31,8 +31,8 @@ Particle chi_b2  10.524000 0.00000
 
 Alias      MyPhi  phi
 Alias      myUpsilon Upsilon
-Alias mychi_b1  chi_b1(3P)
-Alias mychi_b2  chi_b2(3P)
+Alias mychi_b1  chi_b1
+Alias mychi_b2  chi_b2
 
 Decay MyPhi
   1.000         K+          K-           VSS;
