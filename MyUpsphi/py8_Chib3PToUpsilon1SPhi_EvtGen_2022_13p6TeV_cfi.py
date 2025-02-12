@@ -58,7 +58,7 @@ End
     ),
     PythiaParameters = cms.PSet(
         pythia8CommonSettingsBlock,
-        pythia8CUEP8M1SettingsBlock,
+        pythia8CP5SettingsBlock,
         processParameters = cms.vstring(
             'Bottomonium:states(3PJ) = 20553,555',
             'Bottomonium:O(3PJ)[3P0(1)] = 0.085,0.085',
