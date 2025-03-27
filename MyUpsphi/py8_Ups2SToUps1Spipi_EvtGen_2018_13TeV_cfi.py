@@ -1,3 +1,5 @@
+
+## Example taken from: https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_setup/BPH-RunIIFall18GS-00268
 # cfi file for Upsilon(2S) -> Upsilon(1S)pipi. Masses and widths are matched between pythia, evtgen and PDG 2024
 #Pythia fragment for filtered Upsilon(2S) -> Upsilon(1S)pipi at 13.0TeV
 #author: Jhovanny Andres Mejia
