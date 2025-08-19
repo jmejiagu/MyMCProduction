@@ -81,8 +81,8 @@ xibfilter = cms.EDFilter("PythiaFilter", ParticleID = cms.untracked.int32(5132))
 
 decayfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(13, -13, 3312),
-    MaxEta = cms.untracked.vdouble(0.0, 0.0, 9999.9),
-    MinEta = cms.untracked.vdouble(-0.0, -0.0, -9999.9),
+    MaxEta = cms.untracked.vdouble( 9999.9,  9999.9, 9999.9),
+    MinEta = cms.untracked.vdouble(-9999.9, -9999.9, -9999.9),
     MinPt = cms.untracked.vdouble(0.0, 0.0, 0.0),
     NumberDaughters = cms.untracked.int32(3),
     ParticleID = cms.untracked.int32(5132),
