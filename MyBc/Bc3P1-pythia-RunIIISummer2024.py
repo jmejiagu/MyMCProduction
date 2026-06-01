@@ -69,7 +69,7 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
 'Enddecay',
 'End'
                              ),
-                             operates_on_particles = cms.vint32(100541,100543),
+                             operates_on_particles = cms.vint32(200541,200543),
                             # list_forced_decays = cms.vstring('MyBc+','MyBc-'),
                            ),
                            parameterSets = cms.vstring('EvtGen130')
@@ -79,16 +79,16 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
                            pythia8CP5SettingsBlock,
                            processParameters = cms.vstring( # put below any needed pythia parameter
 #
-            '100541:new = B_c(3P1)+ B_c(3P1)- 3 3 0 6.75000e+00 0.0000000e+00 0.00000 0.00000 0.0000000e+00',
-            '100541:isResonance = false',
-            '100541:addChannel = 1 0.88 0 541 22',
-            '100541:addChannel = 2 0.12 0 543 22',
-            '100541:mayDecay = off',
+            '200541:new = B_c(3P1)+ B_c(3P1)- 3 3 0 6.75000e+00 0.0000000e+00 0.00000 0.00000 0.0000000e+00',
+            '200541:isResonance = false',
+            '200541:addChannel = 1 0.88 0 541 22',
+            '200541:addChannel = 2 0.12 0 543 22',
+            '200541:mayDecay = off',
 #
-            '100543:new = B_c(3P2)+ B_c(3P2)- 5 3 0 6.76800e+00 0.0000000e+00 0.00000 0.00000 0.0000000e+00',
-            '100543:isResonance = false',
-            '100543:addChannel = 1 1.0 0 543 22',
-            '100543:mayDecay = off',
+            '200543:new = B_c(3P2)+ B_c(3P2)- 5 3 0 6.76800e+00 0.0000000e+00 0.00000 0.00000 0.0000000e+00',
+            '200543:isResonance = false',
+            '200543:addChannel = 1 1.0 0 543 22',
+            '200543:mayDecay = off',
 #
             '543:m0 = 6.33207',
             '543:tau0 = 0.',
@@ -117,8 +117,8 @@ bc2sgenfilter = cms.EDFilter("PythiaDauVFilter",
     MinEta = cms.untracked.vdouble(-1.7),
     MinPt = cms.untracked.vdouble(0.2),
     NumberDaughters = cms.untracked.int32(1),
-#    ParticleID = cms.untracked.int32(100543),
-    ParticleID = cms.untracked.int32(100541),
+#    ParticleID = cms.untracked.int32(200543),
+    ParticleID = cms.untracked.int32(200541),
     verbose = cms.untracked.int32(0)
 )
 
