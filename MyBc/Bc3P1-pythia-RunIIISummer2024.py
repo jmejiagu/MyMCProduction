@@ -16,50 +16,55 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
                            EvtGen130 = cms.untracked.PSet(
                              # decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
                              decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2020_NOLONGLIFE.DEC'),
-                             #particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_Bc_2014.pdl'),
-                             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_Bc_2026.pdl'),  
+                             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_Bc_2014.pdl'),
                              #particle_property_file = cms.FileInPath('evt_Bc_2026.pdl'), ### CHECK ?!
                              convertPythiaCodes = cms.untracked.bool(False),
                              user_decay_embedded= cms.vstring(
+"""
+Particle B_c+       6.27447 0.00000e+00
+Particle B_c*+      6.33207 0.00000e+00
+Particle B_c1+      6.75000 0.00000
+Particle B_c2*+     6.76800 0.00000
+Particle B_c-       6.27447 0.00000e+00
+Particle B_c*-      6.33207 0.00000e+00
+Particle B_c1-      6.75000 0.00000
+Particle B_c2*-     6.76800 0.00000
+Particle J/psi      3.09690 9.29000e-05
+Alias B_c+_SIGNAL B_c+
+Alias B_c-_SIGNAL B_c-
+Alias MyJ/psi J/psi
+ChargeConj B_c+_SIGNAL B_c-_SIGNAL
+ChargeConj B_c*+ B_c*-
+ChargeConj B_c1+ B_c1-
+ChargeConj B_c2*+ B_c2*-
+ChargeConj MyJ/psi MyJ/psi
+Decay B_c1+
+  0.88 B_c+_SIGNAL gamma  PHSP;
+  0.12 B_c*+       gamma  PHSP;
+Enddecay
+CDecay B_c1-
 
-'Particle B_c+       6.27447 0.00000e+00',
-'Particle B_c*+      6.33207 0.00000e+00',
-'Particle B_c-       6.27447 0.00000e+00',
-'Particle B_c*-      6.33207 0.00000e+00',
-'Particle J/psi      3.09690 9.29000e-05',
-'Alias B_c+_SIGNAL B_c+',
-'Alias B_c-_SIGNAL B_c-',
-'Alias MyJ/psi J/psi',
-'ChargeConj B_c+_SIGNAL B_c-_SIGNAL',
-'ChargeConj B_c*+ B_c*-',
-'ChargeConj B_c(3P1)+ B_c(3P1)-',
-'ChargeConj B_c(3P2)+ B_c(3P2)-',
-'ChargeConj MyJ/psi MyJ/psi',
-'Decay B_c(3P1)+',
-'  0.88 B_c+_SIGNAL gamma  PHSP;',
-'  0.12 B_c*+       gamma  PHSP;',
-'Enddecay',
-'CDecay B_c(3P1)-',
-'Decay B_c(3P2)+',
-'  1.0 B_c*+        gamma  PHSP;',
-'Enddecay',
-'CDecay B_c(3P2)-',
-'Decay B_c*+',
-'  1.0 B_c+_SIGNAL  gamma   VSP_PWAVE;',
-'Enddecay',
-'CDecay B_c*-',
-# Updated B_c+ decays with multiple channels?
-'Decay B_c+_SIGNAL',
-'  1.0   MyJ/psi    pi+    SVS;',
-'Enddecay',
-'CDecay B_c-_SIGNAL',
-# J/psi decay
-'Decay MyJ/psi',
-'  1.0   mu+  mu-            PHOTOS  VLL;',
-'Enddecay',
-'End'
-                             ),
-                             operates_on_particles = cms.vint32(200541,200543),
+Decay B_c2*+
+  1.0 B_c*+        gamma  PHSP;
+Enddecay
+CDecay B_c2*-
+
+Decay B_c*+
+  1.0 B_c+_SIGNAL  gamma   VSP_PWAVE;
+Enddecay
+CDecay B_c*-
+
+Decay B_c+_SIGNAL
+  1.0   MyJ/psi    pi+    SVS;
+Enddecay
+CDecay B_c-_SIGNAL
+
+Decay MyJ/psi
+  1.0   mu+  mu-            PHOTOS  VLL;
+Enddecay
+End
+"""                             ),
+                             operates_on_particles = cms.vint32(10543,545),
                             # list_forced_decays = cms.vstring('MyBc+','MyBc-'),
                            ),
                            parameterSets = cms.vstring('EvtGen130')
@@ -69,16 +74,16 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
                            pythia8CP5SettingsBlock,
                            processParameters = cms.vstring( # put below any needed pythia parameter
 #
-            '200541:new = B_c(3P1)+ B_c(3P1)- 3 3 0 6.75000e+00 0.0000000e+00 6.75000 6.75000 0.0000000e+00',
-            '200541:isResonance = false',
-            '200541:addChannel = 1 0.88 0 541 22',
-            '200541:addChannel = 2 0.12 0 543 22',
-            '200541:mayDecay = off',
+            '10543:new = B_c1+ B_c1- 3 3 0 6.75000e+00 0.0000000e+00 6.75000 6.75000 0.0000000e+00',
+            '10543:isResonance = false',
+            '10543:addChannel = 1 0.88 0 541 22',
+            '10543:addChannel = 2 0.12 0 543 22',
+            '10543:mayDecay = off',
 #
-            '200543:new = B_c(3P2)+ B_c(3P2)- 5 3 0 6.76800e+00 0.0000000e+00 6.76800 6.76800 0.0000000e+00',
-            '200543:isResonance = false',
-            '200543:addChannel = 1 1.0 0 543 22',
-            '200543:mayDecay = off',
+            '545:new = B_c2*+ B_c2*- 5 3 0 6.76800e+00 0.0000000e+00 6.76800 6.76800 0.0000000e+00',
+            '545:isResonance = false',
+            '545:addChannel = 1 1.0 0 543 22',
+            '545:mayDecay = off',
 #
             '543:m0 = 6.33207',
             '543:tau0 = 0.',
@@ -107,8 +112,8 @@ bc2sgenfilter = cms.EDFilter("PythiaDauVFilter",
     MinEta = cms.untracked.vdouble(-1.7),
     MinPt = cms.untracked.vdouble(0.2),
     NumberDaughters = cms.untracked.int32(1),
-#    ParticleID = cms.untracked.int32(200543),
-    ParticleID = cms.untracked.int32(200541),
+#    ParticleID = cms.untracked.int32(545),
+    ParticleID = cms.untracked.int32(10543),
     verbose = cms.untracked.int32(0)
 )
 
