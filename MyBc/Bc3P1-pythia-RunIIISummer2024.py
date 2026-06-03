@@ -83,6 +83,8 @@ End
             '10543:mWidth = 0.00000',    # Actualizamos el Width en Pythia para que coincida con EvtGen
             '10543:mMin = 6.75000',      # Ajustamos el umbral mínimo de masa
             '10543:mMax = 6.75000',      # Ajustamos el umbral máximo de masa
+            '10543:oneChannel = 1 0.88 0 541 22',
+            '10543:addChannel = 1 0.12 0 543 22',
             '10543:mayDecay = off',      # ¡IMPORTANTE! Le prohibimos a Pythia decaerla...
                                
 #
@@ -93,7 +95,8 @@ End
             '545:m0 = 6.76800',
             '545:mWidth = 0.00000',                   
             '545:mMin = 6.76800',      
-            '545:mMax = 6.76800',      
+            '545:mMax = 6.76800',
+            '545:oneChannel = 1 1.0 0 543 22',
             '545:mayDecay = off',                        
 #
             '543:m0 = 6.33207',
