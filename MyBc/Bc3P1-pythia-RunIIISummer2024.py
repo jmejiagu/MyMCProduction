@@ -74,16 +74,27 @@ End
                            pythia8CP5SettingsBlock,
                            processParameters = cms.vstring( # put below any needed pythia parameter
 #
-            '10543:new = B_c1+ B_c1- 3 3 0 6.75000e+00 0.0000000e+00 6.75000 6.75000 0.0000000e+00',
-            '10543:isResonance = false',
-            '10543:addChannel = 1 0.88 0 541 22',
-            '10543:addChannel = 2 0.12 0 543 22',
-            '10543:mayDecay = off',
+            #'10543:new = B_c1+ B_c1- 3 3 0 6.75000e+00 0.0000000e+00 6.75000 6.75000 0.0000000e+00',
+            #'10543:isResonance = false',
+            #'10543:addChannel = 1 0.88 0 541 22',
+            #'10543:addChannel = 2 0.12 0 543 22',
+            #'10543:mayDecay = off',
+            '10543:m0 = 6.75000',        # Actualizamos la masa en Pythia para que coincida con EvtGen
+            '10543:mWidth = 0.00000',    # Actualizamos el Width en Pythia para que coincida con EvtGen
+            '10543:mMin = 6.75000',      # Ajustamos el umbral mínimo de masa
+            '10543:mMax = 6.75000',      # Ajustamos el umbral máximo de masa
+            '10543:mayDecay = off',      # ¡IMPORTANTE! Le prohibimos a Pythia decaerla...
+                               
 #
-            '545:new = B_c2*+ B_c2*- 5 3 0 6.76800e+00 0.0000000e+00 6.76800 6.76800 0.0000000e+00',
-            '545:isResonance = false',
-            '545:addChannel = 1 1.0 0 543 22',
-            '545:mayDecay = off',
+            #'545:new = B_c2*+ B_c2*- 5 3 0 6.76800e+00 0.0000000e+00 6.76800 6.76800 0.0000000e+00',
+            #'545:isResonance = false',
+            #'545:addChannel = 1 1.0 0 543 22',
+            #'545:mayDecay = off',
+            '545:m0 = 6.76800',
+            '545:mWidth = 0.00000',                   
+            '545:mMin = 6.76800',      
+            '545:mMax = 6.76800',      
+            '545:mayDecay = off',                        
 #
             '543:m0 = 6.33207',
             '543:tau0 = 0.',
