@@ -124,11 +124,20 @@ bc2sgenfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(22),
     MaxEta = cms.untracked.vdouble(1.6),
     MinEta = cms.untracked.vdouble(-1.6),
-    MinPt = cms.untracked.vdouble(0.25),
+    #MinPt = cms.untracked.vdouble(0.25),
+    MinPt = cms.untracked.vdouble(0.30),                         
     NumberDaughters = cms.untracked.int32(1),
 #    ParticleID = cms.untracked.int32(545),
     ParticleID = cms.untracked.int32(10543),
     verbose = cms.untracked.int32(0)
+)
+
+bfilter = cms.EDFilter("PythiaFilter",
+    ParticleID = cms.untracked.int32(541),
+    MinRapidity = cms.untracked.double(-2.5),
+    MaxRapidity = cms.untracked.double(2.5),
+    MinPt = cms.untracked.double(9.0),
+    MaxPt = cms.untracked.double(1000.0),
 )
 
 bcgenfilter = cms.EDFilter("PythiaDauVFilter",
@@ -152,4 +161,5 @@ jpsifilter = cms.EDFilter("PythiaDauVFilter",
   MaxEta          = cms.untracked.vdouble( 2.6,  2.6)
 )
 
-ProductionFilterSequence = cms.Sequence(generator*bc2sgenfilter*bcgenfilter*jpsifilter)
+#ProductionFilterSequence = cms.Sequence(generator*bc2sgenfilter*bcgenfilter*jpsifilter)
+ProductionFilterSequence = cms.Sequence(generator*bc2sgenfilter*bfilter*bcgenfilter*jpsifilter)
