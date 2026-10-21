@@ -1,3 +1,5 @@
+## Like Example:https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/BPH-RunIIFall18GS-00280
+
 import FWCore.ParameterSet.Config as cms
 from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunesRun3ECM13p6TeV.PythiaCP5Settings_cfi import *
@@ -137,7 +139,7 @@ bfilter = cms.EDFilter("PythiaFilter",
     ParticleID = cms.untracked.int32(521),
     MinRapidity = cms.untracked.double(-2.5),
     MaxRapidity = cms.untracked.double(2.5),
-    MinPt = cms.untracked.double(9.0),
+    MinPt = cms.untracked.double(5.0),
     MaxPt = cms.untracked.double(1000.0),
 )
 
@@ -162,4 +164,5 @@ jpsifilter = cms.EDFilter("PythiaDauVFilter",
   MaxEta          = cms.untracked.vdouble( 2.6,  2.6)
 )
 
-ProductionFilterSequence = cms.Sequence(generator*xibfilter*bfilter*bugenfilter*jpsifilter)
+#ProductionFilterSequence = cms.Sequence(generator*xibfilter*bfilter*bugenfilter*jpsifilter)
+ProductionFilterSequence = cms.Sequence(generator*xibfilter*jpsifilter)
