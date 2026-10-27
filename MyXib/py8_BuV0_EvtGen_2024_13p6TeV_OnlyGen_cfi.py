@@ -147,7 +147,7 @@ bugenfilter = cms.EDFilter("PythiaDauVFilter",
     DaughterIDs = cms.untracked.vint32(321),
     MaxEta = cms.untracked.vdouble(2.6),
     MinEta = cms.untracked.vdouble(-2.6),
-    MinPt = cms.untracked.vdouble(1.1),
+    MinPt = cms.untracked.vdouble(0.95),
     NumberDaughters = cms.untracked.int32(1),
     ParticleID = cms.untracked.int32(521),
     verbose = cms.untracked.int32(0)
@@ -165,4 +165,5 @@ jpsifilter = cms.EDFilter("PythiaDauVFilter",
 )
 
 #ProductionFilterSequence = cms.Sequence(generator*xibfilter*bfilter*bugenfilter*jpsifilter)
-ProductionFilterSequence = cms.Sequence(generator*xibfilter*jpsifilter)
+ProductionFilterSequence = cms.Sequence(generator*xibfilter*bugenfilter*jpsifilter)
+#ProductionFilterSequence = cms.Sequence(generator*xibfilter*jpsifilter)
