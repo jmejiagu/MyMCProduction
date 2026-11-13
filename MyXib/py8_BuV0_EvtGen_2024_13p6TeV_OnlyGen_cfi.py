@@ -124,46 +124,6 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
 # Filters #
 ###########
 
-#xibfilter = cms.EDFilter("PythiaFilter", ParticleID = cms.untracked.int32(5112))
-xibfilter = cms.EDFilter("PythiaDauVFilter",
-    DaughterIDs = cms.untracked.vint32(3122),
-    MinRapidity = cms.untracked.double(-2.6),
-    MaxRapidity = cms.untracked.double(2.6),                     
-    MinPt = cms.untracked.vdouble(1.0),                         
-    NumberDaughters = cms.untracked.int32(1),
-    ParticleID = cms.untracked.int32(5112),
-    verbose = cms.untracked.int32(0)
-)
+xibfilter = cms.EDFilter("PythiaFilter", ParticleID = cms.untracked.int32(5112))
 
-bfilter = cms.EDFilter("PythiaFilter",
-    ParticleID = cms.untracked.int32(521),
-    MinRapidity = cms.untracked.double(-2.5),
-    MaxRapidity = cms.untracked.double(2.5),
-    MinPt = cms.untracked.double(5.0),
-    MaxPt = cms.untracked.double(1000.0),
-)
-
-bugenfilter = cms.EDFilter("PythiaDauVFilter",
-    DaughterIDs = cms.untracked.vint32(321),
-    MaxEta = cms.untracked.vdouble(2.6),
-    MinEta = cms.untracked.vdouble(-2.6),
-    MinPt = cms.untracked.vdouble(0.95),
-    NumberDaughters = cms.untracked.int32(1),
-    ParticleID = cms.untracked.int32(521),
-    verbose = cms.untracked.int32(0)
-)
-
-jpsifilter = cms.EDFilter("PythiaDauVFilter",
-  verbose         = cms.untracked.int32(0),
-  NumberDaughters = cms.untracked.int32(2),
-  MotherID        = cms.untracked.int32(521),
-  ParticleID      = cms.untracked.int32(443),
-  DaughterIDs     = cms.untracked.vint32(13, -13),
-  MinPt           = cms.untracked.vdouble(2.0, 2.0),
-  MinEta          = cms.untracked.vdouble(-2.6, -2.6),
-  MaxEta          = cms.untracked.vdouble( 2.6,  2.6)
-)
-
-#ProductionFilterSequence = cms.Sequence(generator*xibfilter*bfilter*bugenfilter*jpsifilter)
-ProductionFilterSequence = cms.Sequence(generator*xibfilter*bugenfilter*jpsifilter)
-#ProductionFilterSequence = cms.Sequence(generator*xibfilter*jpsifilter)
+ProductionFilterSequence = cms.Sequence(generator*xibfilter)
